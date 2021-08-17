@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto&display=swap');
+
+.container{
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 48px 40px 36px;
+    width: 680px;
+    margin: 50px auto;
+    display: flex;
+}
+
+body{
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+}
+
+.logo, .title{
+    font-size: 24px;
+}
+
+.title{
+    padding-top: 16px;
+}
+
+.text-below-image{
+    font-size: 16px;
+}
+
+.email-field{
+    width: 412px;
+}
+
+.distance-of-box{
+    margin-left: 10px;
+}
+
+.form-first-last-name{
+    padding: 24px 0px 0px;
+}
+
+img{
+    width: 244px;
+    height: 244px;
+    padding: 0px 0px 0px 48px;
+}
+
+.text-below-image{
+    padding: 0px 0px 0px 48px;
+    color: #202124;
+    font-weight: 300;
+    text-align: center;
+}
+
+.next-button{
+    margin-left: 210px;
+    font-size: 14px;
+    text-align: center;
+    color: #ffffff;
+    background-color: #1a73e8;
+    border-radius: 5px;
+    padding: 10px 5px;
+    min-width: 80px;
+    border: 1px solid #1a73e8;
+}
+
+.sign-in-button{
+    font-size: 14px;
+    min-width: 120px;
+    text-align: center;
+    color:#1a73e8;
+    background-color: #ffffff;
+    border: 1px solid #ffffff;
+}
+
+button{
+    margin-top: 60px;
+    margin-bottom: 40px;
+}
+
+.container-rightside{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
