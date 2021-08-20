@@ -2,7 +2,7 @@
 
     <div class="container-leftside">
 
-        <div>
+        <div class="form-heading">
             <p class="logo">
                 <span style="color:blue">F</span>
                 <span style="color:red">u</span>
@@ -17,48 +17,66 @@
             </p>
         </div>
         
-        <form>
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
 
             <div class="form-first-last-name">              
-                <mat-form-field appearance="outline">
+                <mat-form-field appearance="outline" class="fname">
                   <mat-label>First name</mat-label>
-                  <input matInput placeholder=""/>                  
+                  <input matInput placeholder="" formControlName="firstName"/>
+                  <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+                    <mat-error *ngIf="f.firstName.errors.required">First name is required</mat-error>
+                </div>                 
                 </mat-form-field>
 
-                <mat-form-field appearance="outline" class="distance-of-box">
+                <mat-form-field appearance="outline" class="lname">
                   <mat-label>Last name</mat-label>
-                  <input matInput placeholder=""/>                 
+                  <input matInput placeholder="" formControlName="lastName"/>
+                  <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+                    <mat-error *ngIf="f.lastName.errors.required">Last name is required</mat-error>
+                </div>                 
                 </mat-form-field>
             </div>
 
             <div>             
                 <mat-form-field appearance="outline" class="email-field">
                   <mat-label>Username</mat-label>
-                  <input matInput placeholder=""/>                 
+                  <input matInput placeholder="" formControlName="email"/>
+                  <mat-hint class="hint">You can use letters, numbers & periods</mat-hint>
+                  <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                    <mat-error *ngIf="f.email.errors.required">Email is required</mat-error>
+                </div>                
                 </mat-form-field>             
             </div>
 
             <div>
-                  <mat-form-field appearance="outline">
+                  <mat-form-field appearance="outline" class="password">
                     <mat-label>Password</mat-label>
-                    <input matInput placeholder=""/>                    
+                    <input matInput placeholder="" [type]="show ? 'text' : 'password'" formControlName="password"/>                   
+                    <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                      <mat-error *ngIf="f.password.errors.required">Password is required</mat-error>
+                  </div>                    
                   </mat-form-field>
 
-                  <mat-form-field appearance="outline" class="distance-of-box">
+                  <mat-form-field appearance="outline" class="confirm-password">
                     <mat-label>Confirm</mat-label>
-                    <input matInput placeholder=""/>
+                    <input matInput placeholder="" [type]="show ? 'text' : 'password'" formControlName="confirmPassword"/>
+                    <div *ngIf="submitted && f.confirmPassword.errors" class="invalid-feedback">
+                      <mat-error *ngIf="f.confirmPassword.errors.required">Confirm password should match password</mat-error>
+                    </div>
+                  
                   </mat-form-field>
+                  
               </div>
 
               <div>
                 <section>
-                    <mat-checkbox class="example-margin">Show password</mat-checkbox>                    
+                    <mat-checkbox class="example-margin" (click)="password()">Show password</mat-checkbox>                    
                   </section>
               </div>
 
               <div>        
                 <button mat-button class="sign-in-button" routerLink="/login"><strong>Sign in instead</strong></button>                
-                <button mat-raised-button class="next-button">Next</button>
+                <button mat-raised-button class="next-button" (click)="onSubmit()">Next</button>
               </div>
 
         </form>
@@ -70,5 +88,3 @@
     </div>
 
 </div>
-
-

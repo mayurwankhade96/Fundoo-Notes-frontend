@@ -30,7 +30,7 @@ body{
     width: 412px;
 }
 
-.distance-of-box{
+.lname, .confirm-password{
     margin-left: 10px;
 }
 
@@ -81,4 +81,24 @@ button{
     display: flex;
     flex-direction: column;
     justify-content: center;
+}
+
+@media(max-width:600px){
+    .container{
+        border: none;
+        margin: auto;       
+    }
+
+    .container-rightside{
+        display: none;
+    }
+
+    .fname, .lname, .password, .confirm-password{
+        width: 98%;
+    }
+
+    .logo, .title{
+        font-size: 30px;
+        text-align: center;
+    }
 }

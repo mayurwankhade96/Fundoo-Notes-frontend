@@ -40,14 +40,14 @@ body{
     margin-left: 30px;
 }
 
-.forget-email-button{
+.forget-password-button{
     font-size: 14px;
     min-width: 120px;
     text-align: center;
     color:#1a73e8;
     background-color: #ffffff;
     border: 1px solid #ffffff;
-    margin-left: 25px;
+    margin-left: 30px;
 }
 
 .next-button, .create-account-button{
@@ -66,6 +66,7 @@ body{
     font-size: 16px;
     text-align: center;
     color: #202124;
+    margin-bottom: 30px;
 }
 
 .form-field{
@@ -73,6 +74,9 @@ body{
     margin: 0px 35px;
 }
 
-.use-account{
-    margin-bottom: 30px;
+@media(max-width:600px){
+    .container{
+        border: none;
+        margin: auto;       
+    }
 }

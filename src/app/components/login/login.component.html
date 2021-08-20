@@ -18,29 +18,35 @@
             Use your Fundoo Account
         </p>
 
-        <form>
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
 
             <div>             
                 <mat-form-field appearance="outline" class="form-field">
                   <mat-label>Email or phone</mat-label>
-                  <input matInput placeholder=""/>                 
+                  <input matInput placeholder="" formControlName = "email"/>
+                  <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                    <div *ngIf="f.email.errors.required">Email is required</div>
+                </div>                 
                 </mat-form-field>             
             </div>
 
             <div>             
                 <mat-form-field appearance="outline" class="form-field">
                   <mat-label>Password</mat-label>
-                  <input matInput placeholder=""/>                 
+                  <input matInput placeholder="" formControlName = "password"/>
+                  <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                    <div *ngIf="f.password.errors.required">Password is required</div>
+                </div>                 
                 </mat-form-field>             
             </div>
 
             <div>
-                <button mat-button class="forget-email-button"><strong>Forget email?</strong></button>                
+                <button mat-button class="forget-password-button" routerLink="/forget"><strong>Forget password?</strong></button>                
             </div>
 
             <div>        
                 <button mat-button class="create-account-button" routerLink="/register"><strong>Create account</strong></button>                
-                <button mat-raised-button class="next-button">Next</button>
+                <button mat-raised-button class="next-button" (click)="onSubmit()">Next</button>
             </div>
 
         </form>
