@@ -53,9 +53,6 @@ export class RegisterComponent implements OnInit
     }
 
     this.userService.register(registerFields).subscribe(response => console.log(response));
-
-    // display form values on success
-    // alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.registerForm.value, null, 4));
   }
 }
 

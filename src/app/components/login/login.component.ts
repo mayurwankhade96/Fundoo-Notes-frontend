@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserService } from 'src/app/services/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +14,7 @@ export class LoginComponent implements OnInit
   submitted: boolean = false;
 
 
-  constructor(private formBuilder: FormBuilder, private userService: UserService) { }
+  constructor(private formBuilder: FormBuilder, private userService: UserService, private route: Router) { }
 
   ngOnInit(): void
   {
@@ -40,6 +41,14 @@ export class LoginComponent implements OnInit
       Password: this.loginForm.value.password
     }
 
-    this.userService.login(loginFields).subscribe(response => console.log(response));
+    // this.userService.login(loginFields).subscribe(response => console.log(response));
+    this.userService.login(loginFields).subscribe
+      (
+        (response: any) =>
+        {
+          localStorage.setItem('FundooJwt', response['token']);
+          this.route.navigate(['Dashboard']);
+        }
+      );
   }
 }

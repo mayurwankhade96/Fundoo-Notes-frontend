@@ -21,6 +21,11 @@ export class HttpService
     return this.http.get(this.backendUrl + url);
   }
 
+  GetNotes(url: any, data: any)
+  {
+    return this.http.get(this.backendUrl + url);
+  }
+
   Put(url: any, data: any, token: any, headers: boolean)
   {
     let dta = {

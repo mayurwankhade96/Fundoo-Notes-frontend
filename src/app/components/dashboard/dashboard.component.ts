@@ -21,10 +21,11 @@ import { ChangeDetectorRef, OnDestroy } from '@angular/core';
 export class DashboardComponent implements OnDestroy
 {
   mobileQuery: MediaQueryList;
+  isExpandable: boolean = false;
 
-  fillerNav = Array.from({ length: 50 }, (_, i) => `Nav Item ${i + 1}`);
+  fillerNav = Array.from({ length: 20 }, (_, i) => `Nav Item ${i + 1}`);
 
-  fillerContent = Array.from({ length: 50 }, () =>
+  fillerContent = Array.from({ length: 20 }, () =>
     "")
 
   private _mobileQueryListener: () => void;
