@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { CoreEnvironment } from '@angular/compiler/src/compiler_facade_interface';
 
@@ -16,5 +16,21 @@ export class HttpService
     return this.http.post(this.backendUrl + url, data);
   }
 
+  Get(url: any, data: any, token: any, headers: boolean)
+  {
+    return this.http.get(this.backendUrl + url);
+  }
+
+  Put(url: any, data: any, token: any, headers: boolean)
+  {
+    let dta = {
+      headers: new HttpHeaders({
+        'Authorization': "Bearer" + token,
+        'Content-Type': 'application/json'
+      })
+    }
+
+    return this.http.put(this.backendUrl + url, data, dta);
+  }
 }
 

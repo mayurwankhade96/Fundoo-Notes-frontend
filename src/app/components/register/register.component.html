@@ -51,10 +51,11 @@
             <div>
                   <mat-form-field appearance="outline" class="password">
                     <mat-label>Password</mat-label>
-                    <input matInput placeholder="" [type]="show ? 'text' : 'password'" formControlName="password"/>                   
+                    <input matInput placeholder="" [type]="show ? 'text' : 'password'" formControlName="password"/>
+                    <mat-hint class="hint-password">Use characters, letters, numbers</mat-hint>                   
                     <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
                       <mat-error *ngIf="f.password.errors.required">Password is required</mat-error>
-                  </div>                    
+                    </div>                    
                   </mat-form-field>
 
                   <mat-form-field appearance="outline" class="confirm-password">
@@ -62,9 +63,8 @@
                     <input matInput placeholder="" [type]="show ? 'text' : 'password'" formControlName="confirmPassword"/>
                     <div *ngIf="submitted && f.confirmPassword.errors" class="invalid-feedback">
                       <mat-error *ngIf="f.confirmPassword.errors.required">Confirm password should match password</mat-error>
-                    </div>
-                  
-                  </mat-form-field>
+                    </div>                  
+                  </mat-form-field>                  
                   
               </div>
 

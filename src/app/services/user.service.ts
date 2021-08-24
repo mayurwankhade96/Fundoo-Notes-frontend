@@ -23,4 +23,9 @@ export class UserService
   {
     return this.httpService.Post("Users/forgetpassword", data, null, false);
   }
+
+  reset(token: any, data: any)
+  {
+    return this.httpService.Put("Users/resetpassword", data, token, true);
+  }
 }
