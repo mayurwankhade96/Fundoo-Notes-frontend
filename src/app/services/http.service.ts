@@ -8,6 +8,7 @@ import { CoreEnvironment } from '@angular/compiler/src/compiler_facade_interface
 })
 export class HttpService
 {
+  token: any;
   backendUrl = environment.backendUrl;
   constructor(private http: HttpClient) { }
 
@@ -21,10 +22,6 @@ export class HttpService
     return this.http.get(this.backendUrl + url);
   }
 
-  GetNotes(url: any, data: any)
-  {
-    return this.http.get(this.backendUrl + url);
-  }
 
   Put(url: any, data: any, token: any, headers: boolean)
   {
@@ -34,8 +31,31 @@ export class HttpService
         'Content-Type': 'application/json'
       })
     }
-
     return this.http.put(this.backendUrl + url, data, dta);
+  }
+
+
+  TakeNote(url: any, data: any)
+  {
+    this.token = localStorage.getItem('FundooJwt');
+    var headerObject = new HttpHeaders().set("Authorization", "Bearer " + this.token);
+    let Options = {
+      headers: headerObject,
+      'Content-Type': 'application/json'
+    }
+    console.log(this.token);
+    return this.http.post(this.backendUrl + url, data, Options);
+  }
+
+  getNotes(url: any)
+  {
+    this.token = localStorage.getItem('FundooJwt');
+    var headerObject = new HttpHeaders().set("Authorization", "Bearer " + this.token);
+    let Options = {
+      headers: headerObject,
+      'Content-Type': 'application/json'
+    }
+    return this.http.get(this.backendUrl + url, Options);
   }
 }
 

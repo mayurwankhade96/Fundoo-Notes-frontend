@@ -1,1 +1,8 @@
-<p>get-all-notes works!</p>
+<div class="container" *ngFor="let allNotes of notes;">
+    <div>
+        <h1>{{allNotes.title}}</h1>
+    </div>
+    <div>
+        <p>{{allNotes.writtenNote}}</p>
+    </div>   
+</div>

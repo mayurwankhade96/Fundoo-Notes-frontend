@@ -10,6 +10,6 @@ export class AuthguardService
 
   getToken()
   {
-    return localStorage.getItem("token");
+    return localStorage.getItem('FundooJwt');
   }
 }

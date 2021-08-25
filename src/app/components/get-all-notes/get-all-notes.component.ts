@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { NotesService } from 'src/app/services/notes.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-get-all-notes',
@@ -8,15 +9,23 @@ import { NotesService } from 'src/app/services/notes.service';
 })
 export class GetAllNotesComponent implements OnInit
 {
+  token: any;
+  @Input() notes: any = [];
 
-  constructor(private noteService: NotesService) { }
+  constructor(private noteService: NotesService, private route: ActivatedRoute) { }
 
   ngOnInit(): void
   {
+    this.displayNotes();
   }
 
-  GetNotes()
+  displayNotes()
   {
-    return this.noteService.getNotes().subscribe(response => console.log(response));
+    this.noteService.getAllNotes('Notes').subscribe((response: any) =>
+    {
+      console.log(response);
+      this.notes = response.data;
+      console.log(this.notes);
+    });
   }
 }

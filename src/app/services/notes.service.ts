@@ -10,12 +10,13 @@ export class NotesService
 
   constructor(private httpService: HttpService) { }
 
-  headers = new HttpHeaders()
-    .set('Authorization', 'Bearer ' + localStorage.getItem('FunDooJwt'));
-  options = { headers: this.headers };
-
-  getNotes()
+  createNote(data: any)
   {
-    return this.httpService.GetNotes("/Notes", this.options);
+    return this.httpService.TakeNote('Notes', data);
+  }
+
+  getAllNotes(url: any)
+  {
+    return this.httpService.getNotes('Notes');
   }
 }

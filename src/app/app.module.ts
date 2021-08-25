@@ -18,9 +18,10 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
+import { AuthguardService } from './services/authguard.service';
+import { GetAllNotesComponent } from './components/get-all-notes/get-all-notes.component';
 import { NotesComponent } from './components/notes/notes.component';
 import { TakeNoteComponent } from './components/take-note/take-note.component';
-import { GetAllNotesComponent } from './components/get-all-notes/get-all-notes.component';
 
 
 @NgModule({
@@ -31,9 +32,9 @@ import { GetAllNotesComponent } from './components/get-all-notes/get-all-notes.c
     ForgetPasswordComponent,
     ResetPasswordComponent,
     DashboardComponent,
+    GetAllNotesComponent,
     NotesComponent,
-    TakeNoteComponent,
-    GetAllNotesComponent
+    TakeNoteComponent
   ],
 
   imports: [
