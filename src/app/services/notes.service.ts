@@ -19,4 +19,14 @@ export class NotesService
   {
     return this.httpService.getNotes('Notes');
   }
+
+  getArchiveNotes(url: any)
+  {
+    return this.httpService.getArchiveNotes('Notes/archive');
+  }
+
+  getTrashNotes(url: any)
+  {
+    return this.httpService.getArchiveNotes('Notes/trash');
+  }
 }

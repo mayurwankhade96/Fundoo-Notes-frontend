@@ -22,6 +22,9 @@ import { AuthguardService } from './services/authguard.service';
 import { GetAllNotesComponent } from './components/get-all-notes/get-all-notes.component';
 import { NotesComponent } from './components/notes/notes.component';
 import { TakeNoteComponent } from './components/take-note/take-note.component';
+import { MatCardModule } from '@angular/material/card';
+import { GetArchiveComponent } from './components/get-archive/get-archive.component';
+import { GetTrashComponent } from './components/get-trash/get-trash.component';
 
 
 @NgModule({
@@ -34,7 +37,9 @@ import { TakeNoteComponent } from './components/take-note/take-note.component';
     DashboardComponent,
     GetAllNotesComponent,
     NotesComponent,
-    TakeNoteComponent
+    TakeNoteComponent,
+    GetArchiveComponent,
+    GetTrashComponent
   ],
 
   imports: [
@@ -50,7 +55,8 @@ import { TakeNoteComponent } from './components/take-note/take-note.component';
     MatToolbarModule,
     MatSidenavModule,
     MatListModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    MatCardModule
   ],
 
   providers: [],

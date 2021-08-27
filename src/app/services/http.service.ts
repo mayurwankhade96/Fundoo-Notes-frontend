@@ -57,5 +57,27 @@ export class HttpService
     }
     return this.http.get(this.backendUrl + url, Options);
   }
+
+  getArchiveNotes(url: any)
+  {
+    this.token = localStorage.getItem('FundooJwt');
+    var headerObject = new HttpHeaders().set("Authorization", "Bearer " + this.token);
+    let Options = {
+      headers: headerObject,
+      'Content-Type': 'application/json'
+    }
+    return this.http.get(this.backendUrl + url, Options);
+  }
+
+  gettrashNotes(url: any)
+  {
+    this.token = localStorage.getItem('FundooJwt');
+    var headerObject = new HttpHeaders().set("Authorization", "Bearer " + this.token);
+    let Options = {
+      headers: headerObject,
+      'Content-Type': 'application/json'
+    }
+    return this.http.get(this.backendUrl + url, Options);
+  }
 }
 
