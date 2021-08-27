@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 // import { UserService } from 'src/app/services/user.service';
@@ -15,6 +15,8 @@ export class TakeNoteComponent implements OnInit
   noteForm!: FormGroup;
   response: any;
   token: any;
+  submitted: boolean = false;
+  @Output() messageEvent = new EventEmitter<any>();
 
   constructor(private formBuilder: FormBuilder, private http: HttpClient, private router: Router, private notesService: NotesService) { }
 
@@ -30,6 +32,7 @@ export class TakeNoteComponent implements OnInit
   {
     if (this.noteForm.value.title != "" && this.noteForm.value.body != "")
     {
+      this.submitted = true;
       let reqData = {
         Title: this.noteForm.get('title')?.value,
         WrittenNote: this.noteForm.get('body')?.value,
@@ -44,7 +47,13 @@ export class TakeNoteComponent implements OnInit
         response =>
         {
           console.log(response);
-        })
+          this.messageEvent.emit();
+        },
+        error => 
+        {
+          console.log(error)
+        });
+      // this.messageEvent.emit();
     }
   }
 }

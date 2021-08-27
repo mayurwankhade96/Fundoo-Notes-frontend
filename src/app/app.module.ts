@@ -25,6 +25,9 @@ import { TakeNoteComponent } from './components/take-note/take-note.component';
 import { MatCardModule } from '@angular/material/card';
 import { GetArchiveComponent } from './components/get-archive/get-archive.component';
 import { GetTrashComponent } from './components/get-trash/get-trash.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { UpdateNoteComponent } from './components/update-note/update-note.component';
+import { DeleteComponent } from './components/delete/delete.component';
 
 
 @NgModule({
@@ -39,7 +42,9 @@ import { GetTrashComponent } from './components/get-trash/get-trash.component';
     NotesComponent,
     TakeNoteComponent,
     GetArchiveComponent,
-    GetTrashComponent
+    GetTrashComponent,
+    UpdateNoteComponent,
+    DeleteComponent
   ],
 
   imports: [
@@ -56,7 +61,8 @@ import { GetTrashComponent } from './components/get-trash/get-trash.component';
     MatSidenavModule,
     MatListModule,
     FlexLayoutModule,
-    MatCardModule
+    MatCardModule,
+    MatDialogModule
   ],
 
   providers: [],
