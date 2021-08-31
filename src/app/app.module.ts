@@ -28,6 +28,8 @@ import { GetTrashComponent } from './components/get-trash/get-trash.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { UpdateNoteComponent } from './components/update-note/update-note.component';
 import { DeleteComponent } from './components/delete/delete.component';
+import { IconsComponent } from './components/icons/icons.component';
+import { MatMenuModule } from '@angular/material/menu';
 
 
 @NgModule({
@@ -44,7 +46,8 @@ import { DeleteComponent } from './components/delete/delete.component';
     GetArchiveComponent,
     GetTrashComponent,
     UpdateNoteComponent,
-    DeleteComponent
+    DeleteComponent,
+    IconsComponent
   ],
 
   imports: [
@@ -62,7 +65,8 @@ import { DeleteComponent } from './components/delete/delete.component';
     MatListModule,
     FlexLayoutModule,
     MatCardModule,
-    MatDialogModule
+    MatDialogModule,
+    MatMenuModule
   ],
 
   providers: [],

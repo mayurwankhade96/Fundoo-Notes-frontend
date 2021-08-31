@@ -1,44 +1,16 @@
-<p>update-note works!</p>
-<mat-card class="example-card">
-    <mat-card-header>
-      <!-- <div mat-card-avatar class="example-header-image"></div> -->
-      <mat-card-title class="note-title"></mat-card-title>
-    </mat-card-header>
-    
-    <mat-card-content>
-      <p>
-        
-      </p>
-    </mat-card-content>
-    <mat-card-actions>
-        <div class="buttons icons">
-            <button mat-icon-button>
-                <mat-icon class="material-icons-outlined">notifications_none</mat-icon>
-              </button>
-        
-              <button mat-icon-button>
-                <mat-icon class="material-icons-outlined">person_add</mat-icon>
-              </button>
-        
-              <button mat-icon-button>
-                <mat-icon class="material-icons-outlined">color_lens</mat-icon>
-              </button>
-        
-              <button mat-icon-button>
-                <mat-icon class="material-icons-outlined">insert_photo</mat-icon>
-              </button>
-        
-              <button mat-icon-button>
-                <mat-icon class="material-icons-outlined">archive_outline</mat-icon>
-              </button>
-        
-              <button mat-icon-button>
-                <mat-icon class="material-icons-outlined">more_vert</mat-icon>
-              </button>
-        </div>
-      <!-- <button mat-button>LIKE</button>
-
-      <button mat-button>SHARE</button> -->
-
-    </mat-card-actions>
-  </mat-card>
+<form [formGroup]="updateForm">
+    <div class="noteTitle" fxLayout="row" fxLayoutAlign="space-between center">
+      <input mat-dialog-title formControlName="title" placeholder="Title"/>
+      <div class="container" fxlayoutAlign="center center">
+        <mat-icon class="my-button pinBtn" [class.clicked]="true">push_pin</mat-icon>
+      </div>
+    </div>
+   
+    <div>
+      <input mat-dialog-title formControlName="writtenNote" placeholder="Note"/>
+    </div>
+  </form>
+  <mat-dialog-actions fxLayout="row" fxLayoutAlign="space-between center">
+    <app-icons></app-icons>
+    <p> <button class="close" mat-button formControlName="noteId" mat-dialog-close (click)="close()">Close</button></p>
+  </mat-dialog-actions>

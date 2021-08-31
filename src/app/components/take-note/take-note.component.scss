@@ -87,33 +87,34 @@ input {
   }
   @media screen and (max-width: 515px) {
     form {
-      width: 400px;
-      .third {
-        .icons {
-          width: 300px;
-          .undo,
-          .redo {
-            display: none;
-          }
-        }
-        .close {
-          padding-left: 10px;
-          padding-right: 10px;
-        }
-      }
+    width: 400px;
+    .third {
+    .icons {
+    width: 300px;
+    .undo,
+    .redo {
+    display: none;
+    }
+    }
+    .close {
+    padding-left: 10px;
+    padding-right: 10px;
+    }
+    }
     }
   }
   @media screen and (max-width: 418px) {
     form {
-      width: 340px;
-      .third {
-        .icons {
-          width: 250px;
-          .undo,
-          .redo {
-            display: none;
-          }
-        }
-      }
+    width: 340px;
+    .third {
+    .icons {
+    width: 250px;
+    .undo,
+    .redo {
+    display: none;
+    }
+    }
+    }
     }
   }
+                                                                                                                                                                                                                                                                                                                                                

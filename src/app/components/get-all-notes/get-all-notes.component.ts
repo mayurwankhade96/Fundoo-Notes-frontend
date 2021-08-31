@@ -12,39 +12,22 @@ import { UpdateNoteComponent } from '../update-note/update-note.component';
 export class GetAllNotesComponent implements OnInit
 {
   token: any;
-  // message: any;
   @Input() notes: any = [];
 
-  constructor(private noteService: NotesService, private route: ActivatedRoute, public dialog: MatDialog) { }
+  constructor(public dialog: MatDialog) { }
 
   ngOnInit(): void
   {
-    // this.displayNotes();
   }
 
-  // displayNotes()
-  // {
-  //   this.noteService.getAllNotes('Notes').subscribe((response: any) =>
-  //   {
-  //     console.log(response);
-  //     this.notes = response.data;
-  //     console.log(this.notes);
-  //   });
-  // }
 
-  openDialog(): void
+  openDialog(note: any): void
   {
     const dialogRef = this.dialog.open(UpdateNoteComponent, {
-      width: '650px',
-      data: this.notes
+      width: '600px',
+      data: note
     });
 
     dialogRef.afterClosed().subscribe()
   }
-
-  // autoRefresh(event: any)
-  // {
-  //   this.message = event;
-  //   this.displayNotes();
-  // }
 }

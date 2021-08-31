@@ -25,13 +25,7 @@ export class HttpService
 
   Put(url: any, data: any, token: any, headers: boolean)
   {
-    let dta = {
-      headers: new HttpHeaders({
-        'Authorization': "Bearer" + token,
-        'Content-Type': 'application/json'
-      })
-    }
-    return this.http.put(this.backendUrl + url, data, dta);
+    return this.http.put(this.backendUrl + url, data);
   }
 
 
@@ -78,6 +72,46 @@ export class HttpService
       'Content-Type': 'application/json'
     }
     return this.http.get(this.backendUrl + url, Options);
+  }
+
+  updateNote(id: any)
+  {
+    console.log(id);
+    const data = {
+      title: id.Title,
+      writtenNote: id.writtenNote
+    }
+    this.token = localStorage.getItem('FundooJwt');
+    var headerObject = new HttpHeaders().set("Authorization", "Bearer " + this.token);
+    let Options = {
+      headers: headerObject,
+      'Content-Type': 'application/json'
+    }
+    return this.http.put(this.backendUrl + 'Notes/' + id.NoteId + '/update', data, Options);
+  }
+
+  trashNote(id: any)
+  {
+    console.log(id);
+    this.token = localStorage.getItem('FundooJwt');
+    var headerObject = new HttpHeaders().set("Authorization", "Bearer " + this.token);
+    let Options = {
+      headers: headerObject,
+      'Content-Type': 'application/json'
+    }
+    return this.http.put(this.backendUrl + 'Notes/' + id.NoteId + '/trash-restore', null, Options);
+  }
+
+  deleteNote(id: any)
+  {
+    console.log(id);
+    this.token = localStorage.getItem('FundooJwt');
+    var headerObject = new HttpHeaders().set("Authorization", "Bearer " + this.token);
+    let Options = {
+      headers: headerObject,
+      'Content-Type': 'application/json'
+    }
+    return this.http.delete(this.backendUrl + 'Notes/' + id.noteId, Options);
   }
 }
 

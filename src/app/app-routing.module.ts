@@ -8,6 +8,8 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { NotesComponent } from './components/notes/notes.component';
 import { GetArchiveComponent } from './components/get-archive/get-archive.component';
 import { GetTrashComponent } from './components/get-trash/get-trash.component';
+import { IconsComponent } from './components/icons/icons.component';
+import { AuthenticationGuard } from './authentication.guard';
 
 const routes: Routes = [
   { path: 'register', component: RegisterComponent },
@@ -16,7 +18,7 @@ const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   {
-    path: 'Dashboard', component: DashboardComponent,
+    path: 'Dashboard', component: DashboardComponent, canActivate: [AuthenticationGuard],
     children: [
       { path: '', redirectTo: 'notes', pathMatch: 'full' },
       { path: 'notes', component: NotesComponent },
@@ -24,6 +26,7 @@ const routes: Routes = [
       { path: 'trash', component: GetTrashComponent }
     ]
   },
+  { path: 'icon', component: IconsComponent }
 ];
 
 @NgModule({

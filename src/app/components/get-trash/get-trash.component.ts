@@ -16,6 +16,7 @@ export class GetTrashComponent implements OnInit
 
   ngOnInit(): void
   {
+    this.displayTrashNotes();
   }
 
   displayTrashNotes()
@@ -25,6 +26,15 @@ export class GetTrashComponent implements OnInit
       console.log(response);
       this.trashNotes = response.data;
       console.log(this.trashNotes);
+    });
+  }
+
+  delete(note: any)
+  {
+    this.noteService.deleteNote(note).subscribe(response =>
+    {
+      console.log(response);
+      this.displayTrashNotes();
     });
   }
 }

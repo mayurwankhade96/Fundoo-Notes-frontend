@@ -2,7 +2,6 @@ import { HttpClient } from '@angular/common/http';
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-// import { UserService } from 'src/app/services/user.service';
 import { NotesService } from 'src/app/services/notes.service';
 
 @Component({
@@ -15,10 +14,10 @@ export class TakeNoteComponent implements OnInit
   noteForm!: FormGroup;
   response: any;
   token: any;
-  submitted: boolean = false;
+  popup: boolean = false;
   @Output() messageEvent = new EventEmitter<any>();
 
-  constructor(private formBuilder: FormBuilder, private http: HttpClient, private router: Router, private notesService: NotesService) { }
+  constructor(private formBuilder: FormBuilder, private notesService: NotesService) { }
 
   ngOnInit(): void
   {
@@ -28,11 +27,15 @@ export class TakeNoteComponent implements OnInit
     });
   }
 
+  onClickNote()
+  {
+    this.popup = !this.popup;
+  }
+
   close()
   {
     if (this.noteForm.value.title != "" && this.noteForm.value.body != "")
     {
-      this.submitted = true;
       let reqData = {
         Title: this.noteForm.get('title')?.value,
         WrittenNote: this.noteForm.get('body')?.value,
@@ -53,7 +56,6 @@ export class TakeNoteComponent implements OnInit
         {
           console.log(error)
         });
-      // this.messageEvent.emit();
     }
   }
 }

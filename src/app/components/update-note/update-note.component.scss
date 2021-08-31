@@ -1,9 +1,32 @@
-button {
-    opacity: 80%;
-    border-color: transparent;
+input{
+    outline: none;
+    border: none;
+}
+
+.my-button {
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+    cursor: pointer;
+    padding-top: 4px;
+    border: none;
     background-color: transparent;
   }
-  button:hover {
-    background-color: #e3e6e7;
-    border-radius: 50%;
+  .button{
+      padding-top: 40px;
+      background-color: white;
+  }
+  
+  .my-button:hover {
+    background-color: rgba(153, 147, 147, 0.5);
+  }
+
+  .close {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 600;
+    padding-left: 30px;
+    padding-right: 30px;
+    height: 35px;
+    margin-bottom: 5px;
+    border-style: none;
   }

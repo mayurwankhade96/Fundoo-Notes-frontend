@@ -7,7 +7,6 @@ import { HttpService } from './http.service';
 })
 export class NotesService
 {
-
   constructor(private httpService: HttpService) { }
 
   createNote(data: any)
@@ -28,5 +27,20 @@ export class NotesService
   getTrashNotes(url: any)
   {
     return this.httpService.getArchiveNotes('Notes/trash');
+  }
+
+  updateNote(data: any)
+  {
+    return this.httpService.updateNote(data);
+  }
+
+  trashNote(data: any)
+  {
+    return this.httpService.trashNote(data);
+  }
+
+  deleteNote(data: any)
+  {
+    return this.httpService.deleteNote(data);
   }
 }
