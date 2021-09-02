@@ -10,7 +10,7 @@ export class GetTrashComponent implements OnInit
 {
 
   token: any;
-  @Input() trashNotes: any = [];
+  trashNotes: any = [];
 
   constructor(private noteService: NotesService) { }
 
@@ -29,12 +29,12 @@ export class GetTrashComponent implements OnInit
     });
   }
 
-  delete(note: any)
-  {
-    this.noteService.deleteNote(note).subscribe(response =>
-    {
-      console.log(response);
-      this.displayTrashNotes();
-    });
-  }
+  // delete(note: any)
+  // {
+  //   this.noteService.deleteNote(note).subscribe(response =>
+  //   {
+  //     console.log(response);
+  //     this.displayTrashNotes();
+  //   });
+  // }
 }

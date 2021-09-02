@@ -1,23 +1,103 @@
-.example-card {
-    max-width: 238px;
-    // height:auto;
-  }
+// .example-card {
+//     max-width: 238px;
+//     // height:auto;
+//   }
 
-  button {
-    opacity: 80%;
-    border-color: transparent;
-    background-color: transparent;
-  }
-  button:hover {
-    background-color: #e3e6e7;
-    border-radius: 50%;
-  }
+//   button {
+//     opacity: 80%;
+//     border-color: transparent;
+//     background-color: transparent;
+//   }
+//   button:hover {
+//     background-color: #e3e6e7;
+//     border-radius: 50%;
+//   }
 
-  .paragraph{
-      word-wrap: break-word;      
-  }
+//   .paragraph{
+//       word-wrap: break-word;      
+//   }
   
 //   .example-header-image {
 //     background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
 //     background-size: cover;
 //   }
+
+.mainSection {
+  margin-top: 20px;
+  grid-template-columns: minmax(min-content, 300px) minmax(200px, 1fr) 150px;
+}
+
+.card {
+  width: 240px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  border-radius: 8px;
+  transform: all 3s ease-in;
+  word-wrap:break-word;
+  grid-template-columns: minmax(min-content, 300px) minmax(200px, 1fr) 150px;
+}
+.card:not(:last-child){
+  margin-right:10px;
+}
+.card:hover {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.bgred{
+  background-color: #e75454;
+}
+
+.bgwhite{
+  background-color: #ffffff;
+}
+
+.bggreen{
+  background-color: #65e665;
+}
+
+.bgorange{
+  background-color: #e28011;
+}
+
+.bggray{
+  background-color: #c3c0c086;
+}
+
+.bgpink{
+  background-color: #ee6ce3;
+}
+
+.bgpurple{
+  background-color: #be7aeb;
+}
+
+.bgblue{
+  background-color: #5eadee;
+}
+
+.bgyellow{
+  background-color: #e7da65;
+}
+
+mat-card-content p {
+  font-size: 16px;
+  font-family: "Roboto", sans-serif;
+}
+
+mat-icon {
+  font-size: 18px;
+}
+
+.my-button {
+  width: 30px;
+  height: 30px;
+  border-radius: 15px;
+  cursor: pointer;
+  padding-top: 4px;
+  border: none;
+  background-color: transparent;
+}
+
+.my-button:hover {
+  background-color: rgba(153, 147, 147, 0.5);
+}

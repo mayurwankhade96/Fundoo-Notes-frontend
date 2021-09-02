@@ -33,7 +33,7 @@
             <div>             
                 <mat-form-field appearance="outline" class="form-field">
                   <mat-label>Password</mat-label>
-                  <input matInput placeholder="" formControlName = "password"/>
+                  <input matInput placeholder="" formControlName = "password" input type="password"/>
                   <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
                     <div *ngIf="f.password.errors.required">Password is required</div>
                 </div>                 

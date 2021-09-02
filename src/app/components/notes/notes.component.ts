@@ -8,7 +8,6 @@ import { NotesService } from 'src/app/services/notes.service';
 })
 export class NotesComponent implements OnInit
 {
-
   message: any;
   notes: any = [];
   constructor(private noteService: NotesService) { }

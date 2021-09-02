@@ -1,6 +1,6 @@
 <form [formGroup]="updateForm">
     <div class="noteTitle" fxLayout="row" fxLayoutAlign="space-between center">
-      <input mat-dialog-title formControlName="title" placeholder="Title"/>
+      <input mat-dialog-title formControlName="title" placeholder="Title" />
       <div class="container" fxlayoutAlign="center center">
         <mat-icon class="my-button pinBtn" [class.clicked]="true">push_pin</mat-icon>
       </div>
@@ -11,6 +11,29 @@
     </div>
   </form>
   <mat-dialog-actions fxLayout="row" fxLayoutAlign="space-between center">
-    <app-icons></app-icons>
+    <!-- <app-icons></app-icons> -->
+    <button mat-icon-button>
+      <mat-icon class="material-icons-outlined">notifications_none</mat-icon>
+    </button>
+
+    <button mat-icon-button>
+      <mat-icon class="material-icons-outlined">person_add</mat-icon>
+    </button>
+
+    <button mat-icon-button>
+      <mat-icon class="material-icons-outlined">color_lens</mat-icon>
+    </button>
+
+    <button mat-icon-button>
+      <mat-icon class="material-icons-outlined">insert_photo</mat-icon>
+    </button>
+
+    <button mat-icon-button>
+      <mat-icon class="material-icons-outlined">archive_outline</mat-icon>
+    </button>
+
+    <button mat-icon-button>
+      <mat-icon class="material-icons-outlined">more_vert</mat-icon>
+    </button>
     <p> <button class="close" mat-button formControlName="noteId" mat-dialog-close (click)="close()">Close</button></p>
   </mat-dialog-actions>

@@ -111,7 +111,19 @@ export class HttpService
       headers: headerObject,
       'Content-Type': 'application/json'
     }
-    return this.http.delete(this.backendUrl + 'Notes/' + id.noteId, Options);
+    return this.http.delete(this.backendUrl + 'Notes/' + id, Options);
+  }
+
+  archiveNote(id: any)
+  {
+    console.log(id);
+    this.token = localStorage.getItem('FundooJwt');
+    var headerObject = new HttpHeaders().set("Authorization", "Bearer " + this.token);
+    let Options = {
+      headers: headerObject,
+      'Content-Type': 'application/json'
+    }
+    return this.http.put(this.backendUrl + 'Notes/' + id.NoteId + '/archive-unarchive', null, Options);
   }
 }
 

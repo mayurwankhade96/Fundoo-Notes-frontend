@@ -1,45 +1,64 @@
 <div class="container">
-    <div class="icons">
-        <button class="buttons">
-            <img class="icon" src="../../../assets/notifications_black_24dp.svg" alt="">
-        </button>
-    </div>
-
-    <div class="icons">
-        <button class="buttons">
-            <img class="icon" src="../../../assets/person_add_alt_black_24dp.svg" alt="">
-        </button>
-    </div>
-
-    <div class="icons">
-        <button class="buttons">
-            <img class="icon" src="../../../assets/palette_black_24dp.svg" alt="">
-        </button>
-    </div>
-
-    <div class="icons">
-        <button class="buttons">
-            <img class="icon" src="../../../assets/image_black_24dp.svg" alt="">
-        </button>
-    </div>
-
-    <div class="icons">
-        <button class="buttons">
-            <img class="icon" src="../../../assets/archive_black_24dp.svg" alt="">
-        </button>
-    </div>
-
-    <div class="icons">
-        <button class="menu-icon" mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
-            <mat-icon>more_vert</mat-icon>
-         </button>
+    <div *ngIf="!isTrashComponent">
+        <div class="icons">
+            <button class="buttons">
+                <img class="icon" src="../../../assets/notifications_black_24dp.svg" alt="">
+            </button>
+        </div>
+    
+        <div class="icons">
+            <button class="buttons">
+                <img class="icon" src="../../../assets/person_add_alt_black_24dp.svg" alt="">
+            </button>
+        </div>
+    
+        <div class="icons">
+            <button class="buttons">
+                <img class="icon" src="../../../assets/palette_black_24dp.svg" alt="">
+            </button>
+        </div>
+    
+        <div class="icons">
+            <button class="buttons">
+                <img class="icon" src="../../../assets/image_black_24dp.svg" alt="">
+            </button>
+        </div>
+    
+        <div class="icons">
+            <button class="buttons" (click)="archive()" *ngIf="!isArchiveComponent">
+                <img class="icon" src="../../../assets/archive_black_24dp.svg" alt="">
+            </button>
+        </div>
+    
+        <div>
+            <button class="buttons" (click)="archive()" *ngIf="isArchiveComponent">
+                <img class="icons" src="../../../assets/unarchive_black_24dp.svg" alt="">
+            </button>
+        </div>
+    
+        <div class="icons">
+            <button class="menu-icon" mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                <mat-icon>more_vert</mat-icon>
+             </button>
+        </div>
+        
+          <mat-menu #menu="matMenu">
+    
+            <button mat-menu-item >
+              <span (click)="trashNote()">Delete note</span>
+            </button>
+    
+          </mat-menu>
     </div>
     
-      <mat-menu #menu="matMenu">
-
-        <button mat-menu-item>
-          <span>Delete note</span>
-        </button>
-
-      </mat-menu>
+      <div *ngIf="isTrashComponent" fxLayout="row">
+        <div class="buttons" (click)="delete()" matTooltip="Delete forever">
+            <img class="icons" src="../../../assets/delete_forever_black_24dp.svg" alt="">
+          </div>
+    
+          <div class="buttons" (click)="trashNote()" matTooltip="Restore">
+            <img class="icons" src="../../../assets/restore_from_trash_black_24dp.svg" alt="">
+          </div>
+      </div>
+      
 </div>

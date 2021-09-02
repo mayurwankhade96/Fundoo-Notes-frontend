@@ -11,7 +11,7 @@ export class GetArchiveComponent implements OnInit
 {
 
   token: any;
-  @Input() archiveNotes: any = [];
+  archiveNotes: any = [];
 
   constructor(private noteService: NotesService) { }
 

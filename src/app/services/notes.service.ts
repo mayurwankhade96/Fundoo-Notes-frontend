@@ -43,4 +43,9 @@ export class NotesService
   {
     return this.httpService.deleteNote(data);
   }
+
+  archiveNote(data: any)
+  {
+    return this.httpService.archiveNote(data);
+  }
 }

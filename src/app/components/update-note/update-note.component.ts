@@ -15,11 +15,6 @@ export class UpdateNoteComponent implements OnInit
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: any, private formBuilder: FormBuilder, private noteService: NotesService)
   {
-    // this.updateForm.patchValue({
-    //   noteId: this.data.noteId,
-    //   title: this.data.title,
-    //   writtenNote: this.data.writtenNote
-    // })
     console.log(this.data);
   }
 
@@ -40,6 +35,7 @@ export class UpdateNoteComponent implements OnInit
       Title: this.updateForm.value.title,
       WrittenNote: this.updateForm.value.writtenNote
     }
+    console.log(reqData);
     this.noteService.updateNote(reqData).subscribe((response: any) =>
     {
       console.log(response);
@@ -47,15 +43,27 @@ export class UpdateNoteComponent implements OnInit
     })
   }
 
-  trashNote()
-  {
-    let reqData = {
-      NoteId: this.updateForm.value.noteId,
-    }
-    this.noteService.trashNote(reqData).subscribe((response: any) =>
-    {
-      console.log(response);
-      this.msgEvent.emit();
-    })
-  }
+  // trashNote()
+  // {
+  //   let reqData = {
+  //     NoteId: this.updateForm.value.noteId,
+  //   }
+  //   this.noteService.trashNote(reqData).subscribe((response: any) =>
+  //   {
+  //     console.log(response);
+  //     this.msgEvent.emit();
+  //   })
+  // }
+
+  // archive()
+  // {
+  //   let reqData = {
+  //     NoteId: this.updateForm.value.noteId,
+  //   }
+  //   this.noteService.archiveNote(reqData).subscribe((response: any) =>
+  //   {
+  //     console.log(response);
+  //     this.msgEvent.emit();
+  //   })
+  // }
 }

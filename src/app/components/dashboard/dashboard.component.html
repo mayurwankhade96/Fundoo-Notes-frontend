@@ -2,7 +2,7 @@
 
     <mat-toolbar color="" class="example-toolbar">
 
-      <button mat-icon-button (click)="snav.toggle()">
+      <button mat-icon-button (click)="snav.toggle()" class="menu-button">
         <mat-icon>menu</mat-icon>
       </button>
 
@@ -20,13 +20,13 @@
 
         <mat-nav-list (mouseover)="isExpandable=true" (mouseleave)="isExpandable=false">
 
-          <div class="navlist active" (mouseover)="isExpandable=true" fxLayout="row" fxLayoutAlign="start center"  fxLayoutGap="20px" mat-list-item routerLink="/dashboard">
-            <button class="navBtn btnPosition" mat-icon-button (mouseover)="isExpandable=true">
+          <div class="navlist active" (mouseover)="isExpandable=true" fxLayout="row" fxLayoutAlign="start center"  fxLayoutGap="20px" mat-list-item>
+            <button class="navBtn btnPosition" mat-icon-button (mouseover)="isExpandable=true" routerLink="/Dashboard">
               <mat-icon>lightbulb</mat-icon>
             </button>
             <span class="nav-icon-name" *ngIf="isExpandable">Notes</span>
           </div>
-          <!-- <a mat-list-item routerLink="." *ngFor="let nav of fillerNav">{{nav}}</a> -->
+          
         </mat-nav-list>
 
         <mat-nav-list (mouseover)="isExpandable=true" (mouseleave)="isExpandable=false">
@@ -45,15 +45,15 @@
             <span class="nav-icon-name" *ngIf="isExpandable">Edit Labels</span>
           </div>
 
-          <div class="navlist" (mouseover)="isExpandable=true" fxLayout="row" fxLayoutAlign="start center"  fxLayoutGap="20px" mat-list-item routerLink="/dashboard/archive">
-            <button class="navBtn btnPosition" mat-icon-button (mouseover)="isExpandable=true">
+          <div class="navlist" (mouseover)="isExpandable=true" fxLayout="row" fxLayoutAlign="start center"  fxLayoutGap="20px" mat-list-item>
+            <button class="navBtn btnPosition" mat-icon-button (mouseover)="isExpandable=true" routerLink="/Dashboard/archive">
               <mat-icon>archive</mat-icon>
             </button>
             <span class="nav-icon-name" *ngIf="isExpandable">Archive</span>
           </div>
 
-          <div class="navlist" (mouseover)="isExpandable=true" fxLayout="row" fxLayoutAlign="start center"  fxLayoutGap="20px" mat-list-item routerLink="/dashboard/trash">
-            <button class="navBtn btnPosition" mat-icon-button (mouseover)="isExpandable=true">
+          <div class="navlist" (mouseover)="isExpandable=true" fxLayout="row" fxLayoutAlign="start center"  fxLayoutGap="20px" mat-list-item>
+            <button class="navBtn btnPosition" mat-icon-button (mouseover)="isExpandable=true" routerLink="/Dashboard/trash">
               <mat-icon>delete</mat-icon>
             </button>
             <span class="nav-icon-name" *ngIf="isExpandable">Trash</span>

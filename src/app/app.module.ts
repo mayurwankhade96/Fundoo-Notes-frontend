@@ -30,6 +30,7 @@ import { UpdateNoteComponent } from './components/update-note/update-note.compon
 import { DeleteComponent } from './components/delete/delete.component';
 import { IconsComponent } from './components/icons/icons.component';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 
 @NgModule({
@@ -66,7 +67,8 @@ import { MatMenuModule } from '@angular/material/menu';
     FlexLayoutModule,
     MatCardModule,
     MatDialogModule,
-    MatMenuModule
+    MatMenuModule,
+    MatTooltipModule
   ],
 
   providers: [],
