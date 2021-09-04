@@ -15,6 +15,11 @@ export class TakeNoteComponent implements OnInit
   response: any;
   token: any;
   popup: boolean = false;
+  IsArchive: boolean = false;
+  IsPin: boolean = false;
+  IsBin: boolean = false;
+  isNoteCretaed: boolean = false;
+
   @Output() messageEvent = new EventEmitter<any>();
 
   constructor(private formBuilder: FormBuilder, private notesService: NotesService) { }
@@ -27,35 +32,41 @@ export class TakeNoteComponent implements OnInit
     });
   }
 
-  onClickNote()
-  {
-    this.popup = !this.popup;
-  }
-
   close()
   {
-    if (this.noteForm.value.title != "" && this.noteForm.value.body != "")
+    if (this.isNoteCretaed == true)
     {
-      let reqData = {
-        Title: this.noteForm.get('title')?.value,
-        WrittenNote: this.noteForm.get('body')?.value,
-        Color: "white",
-        IsArchive: false,
-        IsPin: false,
-        IsBin: false,
+      if (this.noteForm.value.title != "" && this.noteForm.value.body != "")
+      {
+        let reqData = {
+          // Title: this.noteForm.get('title')?.value,
+          // WrittenNote: this.noteForm.get('body')?.value,
+          Title: this.noteForm.value.title,
+          WrittenNote: this.noteForm.value.body,
+          Color: "",
+          IsArchive: this.IsArchive,
+          IsPin: this.IsPin,
+          IsBin: this.IsBin,
+        }
+        this.noteForm.controls['title'].setValue('');
+        this.noteForm.controls['body'].setValue('');
+        console.log(reqData);
+        this.notesService.createNote(reqData).subscribe(
+          response =>
+          {
+            console.log(response);
+            this.messageEvent.emit();
+            this.popup = !this.popup;
+          },
+          error => 
+          {
+            console.log(error)
+          });
       }
-
-      console.log(reqData);
-      this.notesService.createNote(reqData).subscribe(
-        response =>
-        {
-          console.log(response);
-          this.messageEvent.emit();
-        },
-        error => 
-        {
-          console.log(error)
-        });
+    }
+    else
+    {
+      this.popup = !this.popup;
     }
   }
 }

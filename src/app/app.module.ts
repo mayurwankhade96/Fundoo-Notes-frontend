@@ -31,6 +31,7 @@ import { DeleteComponent } from './components/delete/delete.component';
 import { IconsComponent } from './components/icons/icons.component';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { ClickOutsideModule } from 'ng-click-outside';
 
 
 @NgModule({
@@ -68,7 +69,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MatCardModule,
     MatDialogModule,
     MatMenuModule,
-    MatTooltipModule
+    MatTooltipModule,
+    ClickOutsideModule
   ],
 
   providers: [],

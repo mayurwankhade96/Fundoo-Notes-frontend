@@ -1,43 +1,43 @@
 <div class="container">
     <div *ngIf="!isTrashComponent" class="container">
         <div class="icons">
-            <button class="buttons">
+            <button class="buttons" matTooltip="Remind me">
                 <img class="icon" src="../../../assets/notifications_black_24dp.svg" alt="">
             </button>
         </div>
     
         <div class="icons">
-            <button class="buttons">
+            <button class="buttons" matTooltip="Collaborator">
                 <img class="icon" src="../../../assets/person_add_alt_black_24dp.svg" alt="">
             </button>
         </div>
     
         <div class="icons">
-            <button class="buttons">
+            <button class="buttons" matTooltip="Change colour">
                 <img class="icon" src="../../../assets/palette_black_24dp.svg" alt="">
             </button>
         </div>
     
         <div class="icons">
-            <button class="buttons">
+            <button class="buttons" matTooltip="Add image">
                 <img class="icon" src="../../../assets/image_black_24dp.svg" alt="">
             </button>
         </div>
     
         <div class="icons">
-            <button class="buttons" (click)="archive()" *ngIf="!isArchiveComponent">
+            <button class="buttons" (click)="archive()" *ngIf="!isArchiveComponent" matTooltip="Archive">
                 <img class="icon" src="../../../assets/archive_black_24dp.svg" alt="">
             </button>
         </div>
     
         <div>
-            <button class="buttons" (click)="archive()" *ngIf="isArchiveComponent">
+            <button class="buttons" (click)="archive()" *ngIf="isArchiveComponent" matTooltip="Unarchive">
                 <img class="icons" src="../../../assets/unarchive_black_24dp.svg" alt="">
             </button>
         </div>
     
         <div class="icons">
-            <button class="menu-icon" mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+            <button class="menu-icon" mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu" matTooltip="More">
                 <mat-icon>more_vert</mat-icon>
              </button>
         </div>

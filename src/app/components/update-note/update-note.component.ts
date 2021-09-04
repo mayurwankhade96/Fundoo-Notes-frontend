@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Inject, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { DataService } from 'src/app/services/data.service';
 import { NotesService } from 'src/app/services/notes.service';
 
 @Component({
@@ -13,7 +14,7 @@ export class UpdateNoteComponent implements OnInit
   updateForm!: FormGroup;
   @Output() msgEvent = new EventEmitter<any>();
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any, private formBuilder: FormBuilder, private noteService: NotesService)
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any, private formBuilder: FormBuilder, private noteService: NotesService, private dataService: DataService)
   {
     console.log(this.data);
   }
@@ -21,7 +22,6 @@ export class UpdateNoteComponent implements OnInit
   ngOnInit(): void
   {
     this.updateForm = this.formBuilder.group({
-      noteId: this.data.noteId,
       title: this.data.title,
       writtenNote: this.data.writtenNote
     })
@@ -31,39 +31,15 @@ export class UpdateNoteComponent implements OnInit
   close()
   {
     let reqData = {
-      NoteId: this.updateForm.value.noteId,
+      NoteId: this.data.noteId,
       Title: this.updateForm.value.title,
-      WrittenNote: this.updateForm.value.writtenNote
+      writtenNote: this.updateForm.value.writtenNote
     }
     console.log(reqData);
     this.noteService.updateNote(reqData).subscribe((response: any) =>
     {
       console.log(response);
-      this.msgEvent.emit();
+      this.dataService.sendMessage(response);
     })
   }
-
-  // trashNote()
-  // {
-  //   let reqData = {
-  //     NoteId: this.updateForm.value.noteId,
-  //   }
-  //   this.noteService.trashNote(reqData).subscribe((response: any) =>
-  //   {
-  //     console.log(response);
-  //     this.msgEvent.emit();
-  //   })
-  // }
-
-  // archive()
-  // {
-  //   let reqData = {
-  //     NoteId: this.updateForm.value.noteId,
-  //   }
-  //   this.noteService.archiveNote(reqData).subscribe((response: any) =>
-  //   {
-  //     console.log(response);
-  //     this.msgEvent.emit();
-  //   })
-  // }
 }

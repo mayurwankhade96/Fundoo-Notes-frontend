@@ -37,7 +37,6 @@ export class HttpService
       headers: headerObject,
       'Content-Type': 'application/json'
     }
-    console.log(this.token);
     return this.http.post(this.backendUrl + url, data, Options);
   }
 

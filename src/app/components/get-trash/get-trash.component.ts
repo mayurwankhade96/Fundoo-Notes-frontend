@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { DataService } from 'src/app/services/data.service';
 import { NotesService } from 'src/app/services/notes.service';
 
 @Component({
@@ -12,11 +13,17 @@ export class GetTrashComponent implements OnInit
   token: any;
   trashNotes: any = [];
 
-  constructor(private noteService: NotesService) { }
+  constructor(private noteService: NotesService,
+    private dataService: DataService) { }
 
   ngOnInit(): void
   {
     this.displayTrashNotes();
+    this.dataService.receivingSource.subscribe(response =>
+    {
+      console.log(response);
+      this.displayTrashNotes();
+    })
   }
 
   displayTrashNotes()
@@ -28,13 +35,4 @@ export class GetTrashComponent implements OnInit
       console.log(this.trashNotes);
     });
   }
-
-  // delete(note: any)
-  // {
-  //   this.noteService.deleteNote(note).subscribe(response =>
-  //   {
-  //     console.log(response);
-  //     this.displayTrashNotes();
-  //   });
-  // }
 }

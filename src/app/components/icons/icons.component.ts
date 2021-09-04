@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { DataService } from 'src/app/services/data.service';
 import { NotesService } from 'src/app/services/notes.service';
 import { GetArchiveComponent } from '../get-archive/get-archive.component';
 import { GetTrashComponent } from '../get-trash/get-trash.component';
@@ -20,7 +21,8 @@ export class IconsComponent implements OnInit
   isTrashComponent: boolean = false;
 
   constructor(private noteService: NotesService,
-    private route: ActivatedRoute) { }
+    private route: ActivatedRoute,
+    private dataService: DataService) { }
 
   ngOnInit(): void
   {
@@ -44,11 +46,10 @@ export class IconsComponent implements OnInit
     let reqData = {
       NoteId: this.note.noteId,
     }
-    console.log(reqData);
     this.noteService.trashNote(reqData).subscribe((response: any) =>
     {
       console.log(response);
-      // this.msgEvent.emit();
+      this.dataService.sendMessage(response);
     })
   }
 
@@ -61,17 +62,16 @@ export class IconsComponent implements OnInit
     this.noteService.archiveNote(reqData).subscribe((response: any) =>
     {
       console.log(response);
-      // this.msgEvent.emit();
+      this.dataService.sendMessage(response);
     })
   }
 
   delete()
   {
-    // console.log(this.note.noteId);
     this.noteService.deleteNote(this.note.noteId).subscribe(response =>
     {
       console.log(response);
-      // this.displayTrashNotes();
+      this.dataService.sendMessage(response);
     });
   }
 }

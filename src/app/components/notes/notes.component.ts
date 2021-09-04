@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from 'src/app/services/data.service';
 import { NotesService } from 'src/app/services/notes.service';
 
 @Component({
@@ -10,11 +11,16 @@ export class NotesComponent implements OnInit
 {
   message: any;
   notes: any = [];
-  constructor(private noteService: NotesService) { }
+  constructor(private noteService: NotesService, private dataService: DataService) { }
 
   ngOnInit(): void
   {
     this.displayNotes();
+    this.dataService.receivingSource.subscribe(response =>
+    {
+      console.log(response);
+      this.displayNotes();
+    })
   }
 
   displayNotes()
