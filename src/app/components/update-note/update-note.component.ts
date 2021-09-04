@@ -33,7 +33,8 @@ export class UpdateNoteComponent implements OnInit
     let reqData = {
       NoteId: this.data.noteId,
       Title: this.updateForm.value.title,
-      writtenNote: this.updateForm.value.writtenNote
+      writtenNote: this.updateForm.value.writtenNote,
+      color: this.data.color
     }
     console.log(reqData);
     this.noteService.updateNote(reqData).subscribe((response: any) =>

@@ -20,7 +20,6 @@ export class GetAllNotesComponent implements OnInit
   {
   }
 
-
   openDialog(note: any): void
   {
     const dialogRef = this.dialog.open(UpdateNoteComponent, {

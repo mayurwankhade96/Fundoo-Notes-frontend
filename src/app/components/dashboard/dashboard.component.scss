@@ -31,7 +31,7 @@
   }
 
   .nav-icon-name {
-    padding-right: 10px;
+    padding-right: 125px;
     font-weight: bold;
     font-family: Arial, Helvetica, sans-serif;
     font-style:initial;
@@ -41,7 +41,7 @@
      align-items: center;
      background-color:#FEEFC3;
      border-radius: 0 20px 20px 0;
-     padding: 8px;
+    //  padding: 8px;
    }
 
    .navlist:active {
@@ -118,4 +118,20 @@
   border-radius: 50px;
   border: none;
   opacity: 0.7;
+}
+
+.menu-button{
+  width: 48px;
+  height: 48px;
+  background-color: #FFFFFF;
+  border-radius: 40px;
+  border: none;
+}
+
+.menu-button:hover{
+  background-color: #EFEFEF;
+}
+
+.logo-image{
+  margin-left: 20px;
 }

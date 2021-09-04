@@ -18,7 +18,6 @@ export class TakeNoteComponent implements OnInit
   IsArchive: boolean = false;
   IsPin: boolean = false;
   IsBin: boolean = false;
-  isNoteCretaed: boolean = false;
 
   @Output() messageEvent = new EventEmitter<any>();
 
@@ -34,35 +33,32 @@ export class TakeNoteComponent implements OnInit
 
   close()
   {
-    if (this.isNoteCretaed == true)
+    if (this.noteForm.value.title != "" && this.noteForm.value.body != "")
     {
-      if (this.noteForm.value.title != "" && this.noteForm.value.body != "")
-      {
-        let reqData = {
-          // Title: this.noteForm.get('title')?.value,
-          // WrittenNote: this.noteForm.get('body')?.value,
-          Title: this.noteForm.value.title,
-          WrittenNote: this.noteForm.value.body,
-          Color: "",
-          IsArchive: this.IsArchive,
-          IsPin: this.IsPin,
-          IsBin: this.IsBin,
-        }
-        this.noteForm.controls['title'].setValue('');
-        this.noteForm.controls['body'].setValue('');
-        console.log(reqData);
-        this.notesService.createNote(reqData).subscribe(
-          response =>
-          {
-            console.log(response);
-            this.messageEvent.emit();
-            this.popup = !this.popup;
-          },
-          error => 
-          {
-            console.log(error)
-          });
+      let reqData = {
+        // Title: this.noteForm.get('title')?.value,
+        // WrittenNote: this.noteForm.get('body')?.value,
+        Title: this.noteForm.value.title,
+        WrittenNote: this.noteForm.value.body,
+        Color: "",
+        IsArchive: this.IsArchive,
+        IsPin: this.IsPin,
+        IsBin: this.IsBin,
       }
+      this.noteForm.controls['title'].setValue('');
+      this.noteForm.controls['body'].setValue('');
+      console.log(reqData);
+      this.notesService.createNote(reqData).subscribe(
+        response =>
+        {
+          console.log(response);
+          this.messageEvent.emit();
+          this.popup = !this.popup;
+        },
+        error => 
+        {
+          console.log(error)
+        });
     }
     else
     {
