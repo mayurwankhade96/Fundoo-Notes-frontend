@@ -48,4 +48,9 @@ export class NotesService
   {
     return this.httpService.archiveNote(data);
   }
+
+  updateColor(data: any)
+  {
+    return this.httpService.addColor(data);
+  }
 }

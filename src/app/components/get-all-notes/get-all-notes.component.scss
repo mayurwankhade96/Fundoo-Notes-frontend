@@ -127,8 +127,14 @@ mat-icon {
   background-color: rgba(153, 147, 147, 0.5);
 }
 
-mat-card{
+::ng-deep mat-card{
   min-height: 104px;
   max-height: 378px;
+}
+
+.note-container{
+  display: flex;
+  flex-direction: row;
+  margin: 10px;
 }
 

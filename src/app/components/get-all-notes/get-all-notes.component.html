@@ -1,11 +1,11 @@
-<div style="flex-direction: row;display: flex;margin: 10px;" *ngFor="let note of notes;">
-  <mat-card class="card">
+<div class="note-container" *ngFor="let note of notes;">
+  <mat-card class="card" ng-class="" [ngStyle]="{'background': '#'.concat(note.color) }">
     <div (click)="openDialog(note)" class="mainBlock">
-      <div id="title" #title contenteditable="false" aria-multiline="true" role="textbox" class="font n1" dir="ltr">
+      <div id="title" contenteditable="false" aria-multiline="true" role="textbox" dir="ltr">
         <strong>{{note.title}}</strong>
       </div>
-      <div id="writtenNote" #writtenNote contenteditable="false" aria-multiline="true" role="textbox" class="font n1"
-        dir="ltr">{{note.writtenNote}}</div>
+      <div id="writtenNote" contenteditable="false" aria-multiline="true" role="textbox" class="font n1" dir="ltr">
+        {{note.writtenNote}}</div>
     </div>
     <span class="icon-component">
       <app-icons [note]="note"></app-icons>

@@ -1,4 +1,4 @@
-<div class="container">
+<div>
     <div *ngIf="!isTrashComponent" class="container">
         <div class="icons">
             <button class="buttons" matTooltip="Remind me">
@@ -20,24 +20,36 @@
 
         <mat-menu #changeColor="matMenu">
             <div class="colors">
-                <button mat-menu-item class="icon-color white" matTooltip="White"></button>
-                <button mat-menu-item class="icon-color red" matTooltip="Red"></button>
-                <button mat-menu-item class="icon-color orange" matTooltip="Orange"></button>
-                <button mat-menu-item class="icon-color yellow" matTooltip="Yellow"></button>
+                <button mat-menu-item class="icon-color white" matTooltip="White"
+                    (click)="addColor(note.noteId, '#FFFFFF')"></button>
+                <button mat-menu-item class="icon-color red" matTooltip="Red"
+                    (click)="addColor(note.noteId, '#F28B82')"></button>
+                <button mat-menu-item class="icon-color orange" matTooltip="Orange"
+                    (click)="addColor(note.noteId, '#FBBC04')"></button>
+                <button mat-menu-item class="icon-color yellow" matTooltip="Yellow"
+                    (click)="addColor(note.noteId, '#FFF475')"></button>
             </div>
 
             <div class="colors">
-                <button mat-menu-item class="icon-color green" matTooltip="Green"></button>
-                <button mat-menu-item class="icon-color teal" matTooltip="Teal"></button>
-                <button mat-menu-item class="icon-color blue" matTooltip="Blue"></button>
-                <button mat-menu-item class="icon-color dark-blue" matTooltip="Dark blue"></button>
+                <button mat-menu-item class="icon-color green" matTooltip="Green"
+                    (click)="addColor(note.noteId, '#CCFF90')"></button>
+                <button mat-menu-item class="icon-color teal" matTooltip="Teal"
+                    (click)="addColor(note.noteId, '#A7FFEB')"></button>
+                <button mat-menu-item class="icon-color blue" matTooltip="Blue"
+                    (click)="addColor(note.noteId, '#CBF0F8')"></button>
+                <button mat-menu-item class="icon-color dark-blue" matTooltip="Dark blue"
+                    (click)="addColor(note.noteId, '#AECBFA')"></button>
             </div>
 
             <div class="colors">
-                <button mat-menu-item class="icon-color purple" matTooltip="Purple"></button>
-                <button mat-menu-item class="icon-color pink" matTooltip="Pink"></button>
-                <button mat-menu-item class="icon-color brown" matTooltip="Brown"></button>
-                <button mat-menu-item class="icon-color grey" matTooltip="Grey"></button>
+                <button mat-menu-item class="icon-color purple" matTooltip="Purple"
+                    (click)="addColor(note.noteId, '#D7AEFB')"></button>
+                <button mat-menu-item class="icon-color pink" matTooltip="Pink"
+                    (click)="addColor(note.noteId, '#FDCFE8')"></button>
+                <button mat-menu-item class="icon-color brown" matTooltip="Brown"
+                    (click)="addColor(note.noteId, '#E6C9A8')"></button>
+                <button mat-menu-item class="icon-color grey" matTooltip="Grey"
+                    (click)="addColor(note.noteId, '#E8EAED')"></button>
             </div>
         </mat-menu>
 

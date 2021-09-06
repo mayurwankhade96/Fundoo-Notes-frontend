@@ -1,12 +1,13 @@
 .container{
     display: flex;
     flex-direction: row;
+    background-color: transparent;
 }
 
 .menu-icon, .buttons{
     border: none;
     outline: none;
-    background-color: white;
+    background-color: transparent;
 }
 
 .icons{

@@ -74,4 +74,20 @@ export class IconsComponent implements OnInit
       this.dataService.sendMessage(response);
     });
   }
+
+  addColor(id: any, color: string)
+  {
+    console.log(id, color);
+
+    let reqData = {
+      NoteId: id,
+      color: color
+    }
+
+    this.noteService.updateColor(reqData).subscribe(response =>
+    {
+      console.log(response);
+      this.dataService.sendMessage(response);
+    })
+  }
 }

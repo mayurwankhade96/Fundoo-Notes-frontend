@@ -125,18 +125,19 @@ export class HttpService
     return this.http.put(this.backendUrl + 'Notes/' + id.NoteId + '/archive-unarchive', null, Options);
   }
 
-  // addColor(data: any){
-  //   const ID = data.noteId;
-  //   const COLOR = data.color;
+  addColor(data: any)
+  {
+    const ID = data.noteId;
+    const COLOR = data.color;
 
-  //   this.token = localStorage.getItem('FundooJwt');
-  //   var headerObject = new HttpHeaders().set("Authorization", "Bearer " + this.token);
-  //   let Options = {
-  //     headers: headerObject,
-  //     'Content-Type': 'application/json'
-  //   }
+    this.token = localStorage.getItem('FundooJwt');
+    var headerObject = new HttpHeaders().set("Authorization", "Bearer " + this.token);
+    let Options = {
+      headers: headerObject,
+      'Content-Type': 'application/json'
+    }
 
-  //   return this.http.put(this.backendUrl + 'Notes/' + data.noteId + '/color=${COLOR.replace('#','')}', data, Options)
-  // }
+    return this.http.put(this.backendUrl + `Notes/color?NoteId=${data.NoteId}&color=${COLOR.replace('#', '')}`, data, Options);
+  }
 }
 
