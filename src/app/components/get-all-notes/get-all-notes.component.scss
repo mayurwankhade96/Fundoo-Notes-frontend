@@ -5,8 +5,6 @@
 
 .card {
   width: 240px;
-  // box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
-  //   rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
   border-radius: 10px;
   transform: all 3s ease-in;
   word-wrap:break-word;
@@ -19,42 +17,6 @@
 .card:hover {
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
-
-// .bgred{
-//   background-color: #e75454;
-// }
-
-// .bgwhite{
-//   background-color: #ffffff;
-// }
-
-// .bggreen{
-//   background-color: #65e665;
-// }
-
-// .bgorange{
-//   background-color: #e28011;
-// }
-
-// .bggray{
-//   background-color: #c3c0c086;
-// }
-
-// .bgpink{
-//   background-color: #ee6ce3;
-// }
-
-// .bgpurple{
-//   background-color: #be7aeb;
-// }
-
-// .bgblue{
-//   background-color: #5eadee;
-// }
-
-// .bgyellow{
-//   background-color: #e7da65;
-// }
 
 .white{
   background-color:#FFFFFF;
@@ -130,11 +92,5 @@ mat-icon {
 ::ng-deep mat-card{
   min-height: 104px;
   max-height: 378px;
-}
-
-.note-container{
-  display: flex;
-  flex-direction: row;
-  margin: 10px;
 }
 

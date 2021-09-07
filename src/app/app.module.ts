@@ -32,6 +32,8 @@ import { IconsComponent } from './components/icons/icons.component';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { ClickOutsideModule } from 'ng-click-outside';
+import { SearchBarPipe } from './pipe/search-bar.pipe';
+import { LabelComponent } from './components/label/label.component';
 
 
 @NgModule({
@@ -49,7 +51,9 @@ import { ClickOutsideModule } from 'ng-click-outside';
     GetTrashComponent,
     UpdateNoteComponent,
     DeleteComponent,
-    IconsComponent
+    IconsComponent,
+    SearchBarPipe,
+    LabelComponent
   ],
 
   imports: [

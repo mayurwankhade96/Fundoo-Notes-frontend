@@ -12,11 +12,11 @@
 
     <div class="search-container" fxLayout="row" fxLayoutAlign="start center">
       <div class="search-inner-container" fxLayoutAlign="center center">
-        <button class="search-button">
+        <button class="search-button" (click)="search(searchInput.value)">
           <mat-icon>search</mat-icon>
         </button>
       </div>
-      <input class="search-input" type="text" placeholder="Search">
+      <input #searchInput class="search-input" type="text" placeholder="Search" (keyup)="search(searchInput.value)">
     </div>
 
     <div class="profile" fxFlex=100 fxLayout="row" fxLayoutAlign="end center">

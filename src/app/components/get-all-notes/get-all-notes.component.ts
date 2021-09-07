@@ -3,6 +3,7 @@ import { NotesService } from 'src/app/services/notes.service';
 import { ActivatedRoute } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { UpdateNoteComponent } from '../update-note/update-note.component';
+import { DataService } from 'src/app/services/data.service';
 
 @Component({
   selector: 'app-get-all-notes',
@@ -13,11 +14,17 @@ export class GetAllNotesComponent implements OnInit
 {
   token: any;
   @Input() notes: any = [];
+  wordToSearch: string = "";
 
-  constructor(public dialog: MatDialog) { }
+  constructor(public dialog: MatDialog, private dataService: DataService) { }
 
   ngOnInit(): void
   {
+    this.dataService.receivingSource.subscribe((response: any) =>
+    {
+      this.wordToSearch = response;
+      console.log(response);
+    });
   }
 
   openDialog(note: any): void
