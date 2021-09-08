@@ -13,4 +13,14 @@ export class LabelService
   {
     return this.httpService.createLabel(data);
   }
+
+  getLabels()
+  {
+    return this.httpService.getLabels();
+  }
+
+  deleteLabel(data: any)
+  {
+    return this.httpService.deleteLabel(data);
+  }
 }

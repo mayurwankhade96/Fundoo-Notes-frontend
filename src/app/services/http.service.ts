@@ -148,7 +148,30 @@ export class HttpService
       headers: headerObject,
       'Content-Type': 'application/json'
     }
-    return this.http.post(this.backendUrl + '/label', data, Options);
+    return this.http.post(this.backendUrl + 'Labels', data, Options);
+  }
+
+  getLabels()
+  {
+    this.token = localStorage.getItem('FundooJwt');
+    var headerObject = new HttpHeaders().set("Authorization", "Bearer " + this.token);
+    let Options = {
+      headers: headerObject,
+      'Content-Type': 'application/json'
+    }
+    return this.http.get(this.backendUrl + 'Labels', Options);
+  }
+
+  deleteLabel(id: any)
+  {
+    console.log(id);
+    this.token = localStorage.getItem('FundooJwt');
+    var headerObject = new HttpHeaders().set("Authorization", "Bearer " + this.token);
+    let Options = {
+      headers: headerObject,
+      'Content-Type': 'application/json'
+    }
+    return this.http.delete(this.backendUrl + `Labels?labelId=${id.labelId}`, Options);
   }
 }
 
