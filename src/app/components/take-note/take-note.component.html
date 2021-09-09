@@ -1,15 +1,15 @@
 <div class="take-note-container" *ngIf="!popup" (click)="popup = !popup" fxLayout="row"
-  fxLayoutAlign="space-between center">
-  <p>
+  fxLayoutAlign="space-between center" [style.background-color]="color">
+  <p [style.background-color]="color">
     Take a note...
   </p>
 </div>
 
 
-<form [formGroup]="noteForm" *ngIf="popup" class="take-note-container">
+<form [formGroup]="noteForm" *ngIf="popup" class="take-note-container" [style.background-color]="color">
 
   <div class="note-title" fxLayout="row" fxLayoutAlign="space-between center">
-    <input *ngIf="popup" type="text" placeholder="Title" formControlName="title" />
+    <input *ngIf="popup" type="text" placeholder="Title" formControlName="title" [style.background-color]="color" />
 
     <div class="container" fxLayoutAlign="center center">
       <mat-icon class="form-button pin-button">push_pin</mat-icon>
@@ -18,17 +18,17 @@
 
   <div class="note-body">
     <div fxLayout="row" fxLayoutAlign="space-between center">
-      <input type="text" placeholder="Take a note..." formControlName="body">
+      <input type="text" placeholder="Take a note..." formControlName="body" [style.background-color]="color">
     </div>
 
 
     <div class="note-work" fxLayout="row">
       <div class="container" fxLayout="row">
-        <app-icons></app-icons>
+        <app-icons (onChangeColorEvent)="colorReceived($event)"></app-icons>
       </div>
 
       <div fxLayout="row">
-        <button class="close-button" mat-button (click)="close()">Close</button>
+        <button class="close-button" mat-button (click)="close()" [style.background-color]="color">Close</button>
       </div>
     </div>
   </div>

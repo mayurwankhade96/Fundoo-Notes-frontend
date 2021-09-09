@@ -15,6 +15,7 @@ export class LabelComponent implements OnInit
   labelForm!: FormGroup;
   private createlabel = new FormControl('');
   labels: any;
+  editPresentLabel: any;
 
   constructor(private formBuilder: FormBuilder, private dataService: DataService, @Inject(MAT_DIALOG_DATA) public data: any, @Optional() private dialogRef: MatDialogRef<DashboardComponent>, private labelService: LabelService) { }
 
@@ -58,11 +59,28 @@ export class LabelComponent implements OnInit
       })
   }
 
-  DeleteLabel(LabelId: any)
+  deleteLabel(LabelId: any)
   {
     this.labelService.deleteLabel(LabelId).subscribe(response => 
     {
       this.createlabel.reset();
+    },
+      error =>
+      {
+        console.log(error);
+      }
+    );
+  }
+
+  editLabel(label: any)
+  {
+    let reqData = {
+      labelId: label.labelId,
+      lableName: this.editPresentLabel
+    }
+    this.labelService.editLabel(reqData).subscribe(response => 
+    {
+      console.log(response);
     },
       error =>
       {

@@ -137,7 +137,7 @@ export class HttpService
       'Content-Type': 'application/json'
     }
 
-    return this.http.put(this.backendUrl + `Notes/color?NoteId=${data.NoteId}&color=${COLOR.replace('#', '')}`, data, Options);
+    return this.http.put(this.backendUrl + `Notes/color?NoteId=${ID.NoteId}&color=${COLOR.replace('#', '')}`, data, Options);
   }
 
   createLabel(data: any)
@@ -172,6 +172,18 @@ export class HttpService
       'Content-Type': 'application/json'
     }
     return this.http.delete(this.backendUrl + `Labels?labelId=${id.labelId}`, Options);
+  }
+
+  editLabel(id: any)
+  {
+    console.log(id);
+    this.token = localStorage.getItem('FundooJwt');
+    var headerObject = new HttpHeaders().set("Authorization", "Bearer " + this.token);
+    let Options = {
+      headers: headerObject,
+      'Content-Type': 'application/json'
+    }
+    return this.http.put(this.backendUrl + 'Labels/' + id.labelId + '/update', Options);
   }
 }
 

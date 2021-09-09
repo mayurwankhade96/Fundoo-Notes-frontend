@@ -7,7 +7,7 @@
         </div>
 
         <div class="icons">
-            <button class="buttons" matTooltip="Collaborator">
+            <button class="buttons" matTooltip="Collaborator" (click)="openDialog()">
                 <img class="icon" src="../../../assets/person_add_alt_black_24dp.svg" alt="">
             </button>
         </div>
@@ -27,7 +27,7 @@
                 <button mat-menu-item class="icon-color orange" matTooltip="Orange"
                     (click)="addColor(note.noteId, '#FBBC04')"></button>
                 <button mat-menu-item class="icon-color yellow" matTooltip="Yellow"
-                    (click)="addColor(note.noteId, '#FFF475')"></button>
+                    (click)="addColor(note, '#FFF475')"></button>
             </div>
 
             <div class="colors">

@@ -1,15 +1,15 @@
-<div>
-  <form [formGroup]="updateForm">
+<div [style.background-color]="color">
+  <form [formGroup]="updateForm" [style.background-color]="color">
 
     <div class="noteTitle" fxLayout="row" fxLayoutAlign="space-between center">
-      <input mat-dialog-title formControlName="title" placeholder="Title" />
+      <input mat-dialog-title formControlName="title" placeholder="Title" [style.background-color]="color" />
       <div class="container" fxlayoutAlign="center center">
         <mat-icon class="my-button pinBtn">push_pin</mat-icon>
       </div>
     </div>
 
     <div class="note-description">
-      <textarea mat-dialog-title formControlName="writtenNote" placeholder="Note">
+      <textarea mat-dialog-title formControlName="writtenNote" placeholder="Note" [style.background-color]="color">
       </textarea>
     </div>
 
@@ -17,6 +17,7 @@
 
   <mat-dialog-actions fxLayout="row" fxLayoutAlign="space-between center">
     <app-icons></app-icons>
-    <p> <button class="close" mat-button mat-dialog-close (click)="close()">Close</button></p>
+    <p> <button class="close" mat-button mat-dialog-close (click)="close()"
+        [style.background-color]="color">Close</button></p>
   </mat-dialog-actions>
 </div>

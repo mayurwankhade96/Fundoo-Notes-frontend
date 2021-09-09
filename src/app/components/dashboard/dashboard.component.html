@@ -46,7 +46,7 @@
     <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'" [fixedInViewport]="mobileQuery.matches"
       fixedTopGap="56">
 
-      <mat-nav-list (mouseover)="isExpandable=true" (mouseleave)="isExpandable=false">
+      <mat-nav-list>
 
         <div class="navlist active" (mouseover)="isExpandable=true" fxLayout="row" fxLayoutAlign="start center"
           fxLayoutGap="20px" mat-list-item>

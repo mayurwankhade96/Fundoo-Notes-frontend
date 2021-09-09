@@ -27,7 +27,7 @@
         </button>
     </div>
 
-    <div class="container" (click)="DeleteLabel(label)">
+    <div class="container" (click)="deleteLabel(label)">
         <button matTooltip="Delete label" class="my-button">
             <mat-icon>delete</mat-icon>
         </button>
@@ -36,7 +36,7 @@
         {{label.labelName}}
     </p>
 
-    <div class="container ">
+    <div class="container " (click)="editLabel(label)">
         <button matTooltip="Rename label" class="my-button">
             <mat-icon>edit</mat-icon>
         </button>

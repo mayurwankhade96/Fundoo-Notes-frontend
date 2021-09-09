@@ -1,8 +1,10 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
 import { DataService } from 'src/app/services/data.service';
 import { NotesService } from 'src/app/services/notes.service';
+import { CollaboratorComponent } from '../collaborator/collaborator.component';
 import { GetArchiveComponent } from '../get-archive/get-archive.component';
 import { GetTrashComponent } from '../get-trash/get-trash.component';
 import { NotesComponent } from '../notes/notes.component';
@@ -19,10 +21,12 @@ export class IconsComponent implements OnInit
   isNotesComponent: boolean = false;
   isArchiveComponent: boolean = false;
   isTrashComponent: boolean = false;
+  @Output() onChangeColorEvent = new EventEmitter<any>();
 
   constructor(private noteService: NotesService,
     private route: ActivatedRoute,
-    private dataService: DataService) { }
+    private dataService: DataService,
+    public dialog: MatDialog) { }
 
   ngOnInit(): void
   {
@@ -78,16 +82,31 @@ export class IconsComponent implements OnInit
   addColor(id: any, color: string)
   {
     console.log(id, color);
-
-    let reqData = {
-      NoteId: id,
-      color: color
-    }
-
-    this.noteService.updateColor(reqData).subscribe(response =>
+    if (id == undefined)
     {
-      console.log(response);
-      this.dataService.sendMessage(response);
-    })
+      this.onChangeColorEvent.emit(color);
+    }
+    else
+    {
+      let reqData = {
+        NoteId: id,
+        color: color
+      }
+
+      this.noteService.updateColor(reqData).subscribe(response =>
+      {
+        console.log(response);
+        this.dataService.sendMessage(response);
+      })
+    }
+  }
+
+  openDialog()
+  {
+    let diaLogRef = this.dialog.open(CollaboratorComponent, {
+      width: "700px",
+      maxWidth: "auto",
+    });
+    diaLogRef.afterClosed().subscribe()
   }
 }

@@ -34,6 +34,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { ClickOutsideModule } from 'ng-click-outside';
 import { SearchBarPipe } from './pipe/search-bar.pipe';
 import { LabelComponent } from './components/label/label.component';
+import { CollaboratorComponent } from './components/collaborator/collaborator.component';
 
 
 @NgModule({
@@ -53,7 +54,8 @@ import { LabelComponent } from './components/label/label.component';
     DeleteComponent,
     IconsComponent,
     SearchBarPipe,
-    LabelComponent
+    LabelComponent,
+    CollaboratorComponent
   ],
 
   imports: [

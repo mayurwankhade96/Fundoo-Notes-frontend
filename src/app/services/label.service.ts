@@ -23,4 +23,9 @@ export class LabelService
   {
     return this.httpService.deleteLabel(data);
   }
+
+  editLabel(data: any)
+  {
+    return this.httpService.editLabel(data);
+  }
 }

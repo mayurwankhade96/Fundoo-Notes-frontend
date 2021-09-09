@@ -18,6 +18,7 @@ export class TakeNoteComponent implements OnInit
   IsArchive: boolean = false;
   IsPin: boolean = false;
   IsBin: boolean = false;
+  color: any
 
   @Output() messageEvent = new EventEmitter<any>();
 
@@ -40,7 +41,7 @@ export class TakeNoteComponent implements OnInit
         // WrittenNote: this.noteForm.get('body')?.value,
         Title: this.noteForm.value.title,
         WrittenNote: this.noteForm.value.body,
-        Color: "",
+        Color: this.color,
         IsArchive: this.IsArchive,
         IsPin: this.IsPin,
         IsBin: this.IsBin,
@@ -64,5 +65,11 @@ export class TakeNoteComponent implements OnInit
     {
       this.popup = !this.popup;
     }
+  }
+
+  colorReceived(value: any)
+  {
+    console.log("color in take a note ", value);
+    this.color = value;
   }
 }

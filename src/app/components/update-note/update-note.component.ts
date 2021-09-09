@@ -12,18 +12,22 @@ import { NotesService } from 'src/app/services/notes.service';
 export class UpdateNoteComponent implements OnInit
 {
   updateForm!: FormGroup;
+  color: any;
   @Output() msgEvent = new EventEmitter<any>();
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: any, private formBuilder: FormBuilder, private noteService: NotesService, private dataService: DataService)
   {
     console.log(this.data);
+    this.color = '#'.concat(data.color)
+    console.log(this.color);
   }
 
   ngOnInit(): void
   {
     this.updateForm = this.formBuilder.group({
       title: this.data.title,
-      writtenNote: this.data.writtenNote
+      writtenNote: this.data.writtenNote,
+      color: this.data.color
     })
     console.log(this.data);
   }
@@ -34,7 +38,7 @@ export class UpdateNoteComponent implements OnInit
       NoteId: this.data.noteId,
       Title: this.updateForm.value.title,
       writtenNote: this.updateForm.value.writtenNote,
-      // color: this.data.color
+      color: this.data.color
     }
     console.log(reqData);
     this.noteService.updateNote(reqData).subscribe((response: any) =>
@@ -43,4 +47,10 @@ export class UpdateNoteComponent implements OnInit
       this.dataService.sendMessage(response);
     })
   }
+
+  // colorReceived(value: any)
+  // {
+  //   console.log("color in take a note ", value);
+  //   this.color = value;
+  // }
 }
