@@ -1,5 +1,4 @@
 <!-- <p>label works!</p> -->
-<!-- <p (click)="GetAllLabel()">get label</p> -->
 <div class="header">
     <h4>Edit Labels</h4>
 </div>
@@ -32,13 +31,20 @@
             <mat-icon>delete</mat-icon>
         </button>
     </div>
-    <p class="labelName">
+    <p class="labelName" (click)="label.editable=!label.editable">
         {{label.labelName}}
     </p>
 
-    <div class="container " (click)="editLabel(label)">
+    <div *ngIf="label.editable">
+        <input type="text" #editableLabel (input)="BindValue(editableLabel.value)" value="{{label.labelName}}">
+    </div>
+
+    <div class="container " fxLayout="row">
         <button matTooltip="Rename label" class="my-button">
             <mat-icon>edit</mat-icon>
+        </button>
+        <button matTooltip="close" class="my-button" (click)="editLabel(label)">
+            <mat-icon>check</mat-icon>
         </button>
     </div>
 </div>

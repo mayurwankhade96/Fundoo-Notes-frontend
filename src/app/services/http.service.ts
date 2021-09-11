@@ -183,7 +183,18 @@ export class HttpService
       headers: headerObject,
       'Content-Type': 'application/json'
     }
-    return this.http.put(this.backendUrl + 'Labels/' + id.labelId + '/update', Options);
+    return this.http.put(this.backendUrl + 'Labels/' + id.labelId + '/update', id, Options);
+  }
+
+  addCollaborator(data: any)
+  {
+    this.token = localStorage.getItem('FundooJwt');
+    var headerObject = new HttpHeaders().set("Authorization", "Bearer " + this.token);
+    let Options = {
+      headers: headerObject,
+      'Content-Type': 'application/json'
+    }
+    return this.http.post(this.backendUrl + 'Notes/collaborator', data, Options);
   }
 }
 

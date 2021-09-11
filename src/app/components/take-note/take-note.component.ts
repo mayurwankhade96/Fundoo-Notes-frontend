@@ -37,8 +37,6 @@ export class TakeNoteComponent implements OnInit
     if (this.noteForm.value.title != "" && this.noteForm.value.body != "")
     {
       let reqData = {
-        // Title: this.noteForm.get('title')?.value,
-        // WrittenNote: this.noteForm.get('body')?.value,
         Title: this.noteForm.value.title,
         WrittenNote: this.noteForm.value.body,
         Color: this.color,

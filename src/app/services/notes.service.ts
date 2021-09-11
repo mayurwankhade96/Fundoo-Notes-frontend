@@ -53,4 +53,9 @@ export class NotesService
   {
     return this.httpService.addColor(data);
   }
+
+  addCollaborator(data: any)
+  {
+    return this.httpService.addCollaborator(data);
+  }
 }

@@ -15,7 +15,9 @@ export class LabelComponent implements OnInit
   labelForm!: FormGroup;
   private createlabel = new FormControl('');
   labels: any;
-  editPresentLabel: any;
+  // editPresentLabel: any;
+  editable = false;
+  editableLabel: any;
 
   constructor(private formBuilder: FormBuilder, private dataService: DataService, @Inject(MAT_DIALOG_DATA) public data: any, @Optional() private dialogRef: MatDialogRef<DashboardComponent>, private labelService: LabelService) { }
 
@@ -72,11 +74,16 @@ export class LabelComponent implements OnInit
     );
   }
 
+  BindValue(editableLabel: any)
+  {
+    this.editableLabel = editableLabel;
+  }
+
   editLabel(label: any)
   {
     let reqData = {
       labelId: label.labelId,
-      lableName: this.editPresentLabel
+      LableName: this.editableLabel
     }
     this.labelService.editLabel(reqData).subscribe(response => 
     {
